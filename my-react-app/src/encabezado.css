@@ -1,0 +1,80 @@
+h2{
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.Encabezado{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.LogoDiv{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.LogoDiv img{
+    width: 130px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+}
+
+
+.menuDiv{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.menuDiv ul{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menuDiv a{
+    text-decoration: none;
+    color: #eaeaea;
+    padding: 10px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.menuDiv ul li a:hover{
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+
+.redesDiv{
+    width: 20%;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.redesDiv ul{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 40px;
+    margin: 20px;
+}
+
+.redesDiv img{
+    width: 30px;
+    height: auto;
+    display: block;
+}

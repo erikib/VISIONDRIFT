@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap');
+
+:root {
+  --color-naranja: #0a0a0a;
+  --color-texto-oscuro: #2c3e50;
+  --color-texto-gris: #7f8c8d;
+  --bg-blanco: #ffffff;
+}
+
+.acerca-section {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-blanco);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.acerca-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.acerca-visual {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.imagen-principal-acerca {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background-image: url('./assets/AcercaFondo.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.adorno-fondo {
+  position: absolute;
+  top: 30px;
+  left: -30px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-naranja);
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.acerca-contenido {
+  padding-right: 20px;
+}
+
+.etiqueta-superior {
+  display: inline-block;
+  background-color: #f0f2f5;
+  color: var(--color-naranja);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.titulo-acerca {
+  font-size: 2.8rem;
+  color: var(--color-texto-oscuro);
+  line-height: 1.1;
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+.parrafo-acerca {
+  font-size: 1.05rem;
+  color: var(--color-texto-gris);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.parrafo-acerca strong {
+  color: var(--color-texto-oscuro);
+  font-weight: 600;
+}
+
+.acerca-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-numero {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-naranja);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.stat-texto {
+  font-size: 0.9rem;
+  color: var(--color-texto-oscuro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-conoce-mas {
+  background-color: var(--color-texto-oscuro);
+  color: #fff;
+  border: none;
+  padding: 18px 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-conoce-mas:hover {
+  background-color: var(--color-naranja);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 107, 74, 0.3);
+}
+
+@media (max-width: 968px) {
+  .acerca-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .acerca-visual {
+    height: 400px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .adorno-fondo {
+    top: 20px;
+    left: 20px;
+  }
+
+  .titulo-acerca {
+    font-size: 2.2rem;
+  }
+
+  .acerca-contenido {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .acerca-stats {
+    justify-content: center;
+  }
+}

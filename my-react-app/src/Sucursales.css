@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+  --color-naranja: #ff0000; /* Tu color de marca */
+  --color-gris-fondo: #f9f9f9;
+  --color-blanco: #ffffff;
+  --color-texto-oscuro: #333333;
+  --color-texto-suave: #666666;
+}
+
+/* --- Estructura General --- */
+.sucursales-section {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-gris-fondo);
+  padding: 80px 20px;
+  min-height: 100vh;
+}
+
+/* --- Encabezado --- */
+.sucursales-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo-principal {
+  color: var(--color-naranja);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.subtitulo-seccion {
+  color: var(--color-texto-suave);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* --- Grid de Tarjetas --- */
+.sucursales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Tarjeta Individual --- */
+.sucursal-card {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  overflow: hidden; /* Para que la imagen respete el borde */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efecto hover: subir tarjeta */
+.sucursal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* --- Imagen de la Sede (CSS Background) --- */
+.sucursal-imagen {
+  height: 220px; /* Altura de la foto */
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.sucursal-imagen-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Efecto Zoom suave en la imagen al hacer hover en la tarjeta */
+.sucursal-card:hover .sucursal-imagen {
+  transform: scale(1.05);
+}
+
+/* --- IMÁGENES REALES (UNSPLASH) --- */
+
+/* CDMX (Ángel de la Independencia) */
+.img-cdmx { 
+  background-image: url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=600&q=80'); 
+}
+
+/* Guadalajara (Arquitectura) */
+.img-gdl { 
+  background-image: url('https://images.unsplash.com/photo-1584666487844-3d077d70428d?auto=format&fit=crop&w=600&q=80'); 
+}
+
+/* Monterrey (Cerro de la Silla) */
+.img-mty { 
+  background-image: url('https://images.unsplash.com/photo-1523531294919-9411dc5441a1?auto=format&fit=crop&w=600&q=80'); 
+}
+
+/* Puebla (Centro Histórico) */
+.img-pue { 
+  background-image: url('https://images.unsplash.com/photo-1574880537024-5d519634e76a?auto=format&fit=crop&w=600&q=80'); 
+}
+
+
+/* --- Etiqueta Flotante sobre la imagen --- */
+.etiqueta-ciudad {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.75); /* Fondo negro semitransparente */
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* --- Información de la tarjeta --- */
+.sucursal-info {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  position: relative; /* Para tapar el overflow si el zoom se sale un poco */
+  z-index: 1;
+}
+
+.nombre-sede {
+  font-size: 1.1rem;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.info-detalle p {
+  margin: 8px 0;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Iconos sencillos con emojis para dirección y horario */
+.direccion::before { content: "📍"; filter: grayscale(1); opacity: 0.7; }
+.horario::before { content: "🕒"; filter: grayscale(1); opacity: 0.7; }
+
+/* --- Botón "Ghost" (Borde naranja) --- */
+.btn-mapa {
+  margin-top: 25px;
+  background-color: transparent;
+  border: 2px solid var(--color-naranja);
+  color: var(--color-naranja);
+  padding: 12px 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sucursal-mapa {
+  margin-top: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sucursal-mapa h2 {
+  display: none;
+}
+
+.btn-mapa:hover {
+  background-color: var(--color-naranja);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 107, 74, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sucursales-grid {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+  }
+}

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+/* --- Configuración General --- */
+.galeria-section {
+  font-family: 'Montserrat', sans-serif;
+  padding: 60px 40px;
+  background-color: #f4f4f4; /* Gris muy suave de fondo */
+  min-height: 100vh;
+}
+
+/* --- Título estilo Pestaña (Arriba Izquierda) --- */
+.galeria-header {
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.pestana-titulo {
+  background-color: #7f8c8d; /* Gris azulado elegante */
+  color: white;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px 4px 0 0; /* Bordes superiores redondeados */
+}
+
+/* --- Grid Layout (3 Columnas Adaptables) --- */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Tarjeta estilo Polaroid --- */
+.galeria-card {
+  background-color: #ffffff;
+  padding: 15px 15px 20px 15px; /* Marco blanco alrededor */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra suave */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto Hover: Levantar tarjeta */
+.galeria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* --- Marco de la Imagen --- */
+.marco-imagen {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Mantiene la imagen cuadrada siempre */
+  overflow: hidden; /* Para que el zoom no se salga del cuadro */
+  margin-bottom: 15px;
+  background-color: #eee;
+}
+
+/* --- Imagen Común (Efectos) --- */
+.imagen-contenido {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease; /* Zoom suave */
+}
+
+/* Zoom al pasar el mouse */
+.galeria-card:hover .imagen-contenido {
+  transform: scale(1.1);
+}
+
+/* --- IMÁGENES ESPECÍFICAS (URLs REALES) --- */
+
+/* 1. Java (Código / Laptop) */
+.tipo-java {
+  background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* 2. Marketing (Gráficas / Negocios) */
+.tipo-marketing {
+  background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* 3. Fotografía (Cámara) */
+.tipo-foto {
+  background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* 4. Video (Edición / Estudio) */
+.tipo-video {
+  background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* 5. Web (Diseño / Wireframes) */
+.tipo-web {
+  background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+/* 6. UX/UI (Prototipado) */
+.tipo-ux {
+  background-image: url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
+}
+
+
+/* --- Info Texto Inferior --- */
+.info-curso {
+  text-align: center;
+}
+
+.info-curso h3 {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ver-mas-link {
+  font-size: 0.75rem;
+  color: #ff6b4a; /* Naranja corporativo */
+  font-weight: 600;
+  opacity: 0; /* Oculto por defecto */
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Mostrar "Ver detalles" al hacer hover en la tarjeta */
+.galeria-card:hover .ver-mas-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,293 @@
+.hero-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #efefef;
+  padding: 1.4rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.hero-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1.1rem;
+}
+
+.hero-page__badge {
+  position: absolute;
+  left: 0;
+  background: linear-gradient(90deg, #4d67c6, #22b8df);
+  color: #ffffff;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  border-radius: 999px;
+  padding: 0.7rem 1.05rem;
+}
+
+.hero-page__title {
+  text-align: center;
+}
+
+.hero-page__title h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  color: #0f0f0f;
+  font-weight: 500;
+}
+
+.hero-page__title p {
+  margin: -0.2rem 0 0;
+  letter-spacing: 0.16em;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: #5da067;
+  font-size: clamp(0.7rem, 1vw, 0.95rem);
+  font-weight: 600;
+}
+
+.hero-card {
+  --hero-text: #f5f0e8;
+  --hero-muted: #d8d0c5;
+  width: min(95vw, 1320px);
+  min-height: min(74vh, 760px);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #141414;
+  padding: 1rem 1.15rem 5.6rem;
+  box-sizing: border-box;
+}
+
+.hero-card__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.hero-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(8, 8, 8, 0.52) 0%,
+    rgba(18, 18, 18, 0.35) 45%,
+    rgba(0, 0, 0, 0.48) 100%
+  );
+}
+
+.hero-card__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.hero-card__mini-brand span {
+  display: block;
+  color: var(--hero-text);
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+}
+
+.hero-card__mini-brand small {
+  color: #d9d6cf;
+  letter-spacing: 0.1em;
+  font-size: 0.5rem;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.hero-card__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-card__nav > a {
+  color: #ece9e3;
+  text-decoration: none;
+  font-size: 0.53rem;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.hero-card__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.hero-card__socials a {
+  color: #e9e5de;
+  width: 1rem;
+  height: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.hero-card__socials svg {
+  width: 0.65rem;
+  height: 0.65rem;
+  fill: currentColor;
+}
+
+.hero-card__menu-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  width: 1rem;
+  cursor: pointer;
+}
+
+.hero-card__menu-btn span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #f3efe8;
+  margin: 0.18rem 0;
+}
+
+.hero-card__content {
+  position: relative;
+  z-index: 2;
+  min-height: 52vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto;
+  color: var(--hero-text);
+}
+
+.hero-card__content h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  letter-spacing: 0.04em;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 600;
+}
+
+.hero-card__content h2::after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 1px;
+  margin: 0.75rem auto 1rem;
+  background: rgba(241, 237, 228, 0.9);
+}
+
+.hero-card__content p {
+  margin: 0;
+  font-size: clamp(0.8rem, 1.2vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--hero-muted);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.hero-card__booking {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: -2.2rem;
+  transform: translateX(-50%);
+  width: min(88%, 760px);
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 0.8fr 0.9fr 1fr;
+  border-radius: 2px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.hero-card__booking > div {
+  padding: 1rem 0.95rem;
+  border-right: 1px solid #ececec;
+}
+
+.hero-card__booking span {
+  display: block;
+  color: #878787;
+  font-size: 0.55rem;
+  letter-spacing: 0.02rem;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.hero-card__booking p {
+  margin: 0.38rem 0 0;
+  color: #2d2d2d;
+  font-size: 0.85rem;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.hero-card__booking button {
+  border: 0;
+  background: #171717;
+  color: #ffffff;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .hero-page {
+    padding: 1rem 0.8rem 2rem;
+  }
+
+  .hero-page__header {
+    justify-content: flex-end;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-page__badge {
+    left: 0;
+    font-size: 0.75rem;
+  }
+
+  .hero-page__title h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-card {
+    min-height: 82vh;
+    padding-bottom: 8.2rem;
+  }
+
+  .hero-card__video {
+    object-position: center 18%;
+  }
+
+  .hero-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .hero-card__booking {
+    width: calc(100% - 1.2rem);
+    grid-template-columns: 1fr;
+    bottom: 0.7rem;
+    left: 0.6rem;
+    right: 0.6rem;
+    transform: none;
+  }
+
+  .hero-card__booking > div {
+    border-right: 0;
+    border-bottom: 1px solid #ececec;
+    padding: 0.85rem;
+  }
+
+  .hero-card__booking button {
+    padding: 0.9rem;
+  }
+}

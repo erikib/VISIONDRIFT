@@ -1,0 +1,152 @@
+.ContenedorTargetas{
+	width: 90vw;
+	max-width: 1400px;
+	margin: 40px auto;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+
+/* Wrapper interno para controlar padding */
+.tarjetasWrapper{
+	width: 100%;
+	min-height: 400px;
+	padding: 60px 12px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	background: radial-gradient(circle at top, #ffffff, #000);
+	border-radius: 16px;
+}
+
+
+
+/* Outer horizontal container: allow horizontal scroll on small screens */
+.contenedorHorizontal{
+	width: 100%;
+	overflow-x: auto;
+}
+
+/* Contenedor de las 4 tarjetas en una fila */
+.tarjetas{
+	display: flex;
+	gap: 16px;
+	width: 100%;
+	height: 100%;
+	align-items: stretch;
+	justify-content: flex-start;
+	flex-wrap: nowrap; /* force horizontal layout */
+}
+
+.tarjeta{
+	flex: 0 0 calc(25% - 12px);
+	min-width: 220px;
+	background: linear-gradient(145deg, #111, #000);
+	border-radius: 16px;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15),
+				0 10px 20px rgba(0,0,0,0.7);
+	padding: 18px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: #eaeaea;
+	position: relative;
+	overflow: hidden;
+}
+
+
+/* ensure images fit inside each tarjeta */
+.tarjeta img{
+	width: 100%;
+	height: 240px;
+	object-fit: cover;
+	border-radius: 12px;
+	margin-bottom: 14px;
+	filter: contrast(1.1) saturate(1.2);
+}
+
+
+.tarjeta h3{
+	margin: 0 0 8px 0;
+}
+
+.tarjeta p{
+	margin: 0;
+	color: #b5b5b5;
+}
+
+/* Responsive: allow horizontal scroll but reduce tarjeta width on smaller screens */
+@media (max-width: 800px){
+	.tarjeta{
+		flex: 0 0 calc(50% - 12px);
+	}
+}
+
+@media (max-width: 420px){
+	.tarjeta{
+		flex: 0 0 80%;
+	}
+}
+
+/* PromosContenido styles moved to PromosContenido.css */
+
+.tarjeta h3{
+	margin: 10px 0;
+	color: #ffffff;
+}
+
+
+.monsterContent p{
+	margin: 0;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+/* Efecto de salto al pasar el cursor */
+.tarjeta{
+	transition: transform 240ms cubic-bezier(.2,.8,.2,1),
+				box-shadow 240ms cubic-bezier(.2,.8,.2,1);
+	will-change: transform, box-shadow;
+	.tarjeta:hover,
+.tarjeta:focus-within{
+	transform: translateY(-10px) scale(1.03);
+	box-shadow:
+		0 0 16px rgba(0,255,102,0.45),
+		0 20px 30px rgba(0,0,0,0.8);
+}
+
+.tarjeta::before{
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 16px;
+	border: 1px solid rgba(0,255,102,0.3);
+	pointer-events: none;
+}
+
+.tarjeta:hover::before{
+	box-shadow: 0 0 18px rgba(0,255,102,0.8);
+}
+
+
+}
+
+.tarjeta:hover,
+.tarjeta:focus-within{
+	transform: translateY(-10px);
+	box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+}
+
+.tarjeta:active{
+	transform: translateY(-4px);
+	box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+}

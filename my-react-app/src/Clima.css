@@ -1,0 +1,64 @@
+/* Clima.css */
+
+.divClima {
+  /* Posicionamiento y Layout */
+  position: relative; /* O 'fixed' si quieres que persiga la pantalla */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin: 20px;
+  
+  /* Estilo visual de "Nube" */
+  background: rgba(255, 255, 255, 0.75); /* Blanco con transparencia */
+  backdrop-filter: blur(12px); /* Efecto borroso detrás (Glassmorphism) */
+  border-radius: 50px; /* Bordes muy redondos */
+  border: 1px solid rgba(255, 255, 255, 0.8); /* Borde sutil brillante */
+  
+  /* Sombra suave para dar profundidad */
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+
+  /* Tipografía */
+  color: #5a6b7c; /* Gris azulado suave */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  
+  /* La Animación de Flotar */
+  animation: flotar 3s ease-in-out infinite;
+}
+
+/* Animación que mueve la nube arriba y abajo */
+@keyframes flotar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px); /* Sube 10 pixeles */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Estilos extra para los textos internos */
+.divClima h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.divClima p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Opcional: Estilo para el ícono si decides agregarlo */
+.clima-icono {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}

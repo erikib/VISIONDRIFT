@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/* --- Sección Principal con Fondo --- */
+.contacto-section {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  width: 100%;
+  min-height: 85vh; /* Altura considerable pero no necesariamente toda la pantalla */
+  
+  /* AQUÍ ESTÁ TU IMAGEN */
+  background-image: url('./assets/ConFondo.jpg'); 
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Overlay (Capa oscura) --- */
+/* Esto es crucial para que el texto blanco se lea sobre cualquier foto */
+.contacto-overlay {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%);
+  width: 100%;
+  height: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 5% 8%; /* Espaciado interno responsive */
+}
+
+/* --- Contenedor de Textos y Formulario --- */
+.contacto-container {
+  max-width: 850px;
+  width: 100%;
+  color: #ffffff;
+}
+
+/* --- Títulos y Textos --- */
+.contacto-titulo {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-transform: uppercase; /* Para darle más impacto como en "MARKETING" */
+}
+
+.contacto-subtitulo {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 650px;
+  line-height: 1.6;
+  color: #dddddd; /* Blanco grisáceo para no cansar la vista */
+}
+
+.contacto-subtitulo strong {
+  color: #f6b93b; /* Resaltamos las palabras clave (Marketing, Java, etc.) en amarillo */
+  font-weight: 600;
+}
+
+/* --- Estilos del Formulario --- */
+.contacto-form {
+  width: 100%;
+}
+
+/* Grid de 3 inputs en línea */
+.form-row-imputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-campo,
+.input-textarea {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95); /* Blanco casi opaco */
+  border: none;
+  padding: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  border-radius: 4px;
+  transition: focus 0.3s;
+}
+
+.input-textarea {
+  resize: none; /* Evita que el usuario rompa el diseño estirando el cuadro */
+  margin-bottom: 20px;
+}
+
+.input-campo:focus,
+.input-textarea:focus {
+  outline: 2px solid #f6b93b; /* Resalte amarillo al escribir */
+}
+
+/* --- Checkbox --- */
+.check-legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.check-legal input {
+  width: 18px;
+  height: 18px;
+  accent-color: #f6b93b;
+  cursor: pointer;
+}
+
+/* --- Botón --- */
+.btn-enviar {
+  background-color: #f6b93b; /* Amarillo mostaza */
+  color: #ffffff;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 4px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(246, 185, 59, 0.3);
+}
+
+.btn-enviar:hover {
+  background-color: #e59620;
+  transform: translateY(-2px);
+}
+
+/* --- Footer Legal --- */
+.legal-footer {
+  margin-top: 25px;
+  font-size: 0.75rem;
+  color: #bbbbbb;
+  max-width: 800px;
+}
+
+/* --- Responsive para Móviles --- */
+@media (max-width: 768px) {
+  .contacto-titulo {
+    font-size: 2rem;
+  }
+  
+  .form-row-imputs {
+    grid-template-columns: 1fr; /* Una sola columna en celular */
+    gap: 15px;
+  }
+  
+  .contacto-overlay {
+    padding: 40px 20px;
+  }
+}
