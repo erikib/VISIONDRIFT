@@ -1,10 +1,15 @@
 import fondoPrincipalVideo from "./assets/FondoPrincipal.MP4";
+import nube from "./assets/nuve.png";
 import "./HeroSection.css";
+import { useState } from "react";
 
 function HeroSection({ onNavigate }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleNavigate = (event, vista) => {
     event.preventDefault();
     onNavigate?.(vista);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -40,7 +45,9 @@ function HeroSection({ onNavigate }) {
             <a href="#" onClick={(event) => handleNavigate(event, "AcercaDe")}>
               ACERCA DE
             </a>
-            <a href="#">MENU</a>
+            <button type="button" className="hero-card__weather-btn" aria-label="Clima">
+              <img src={nube} alt="Clima" />
+            </button>
             <a href="#" onClick={(event) => handleNavigate(event, "Contactos")}>
               CONTACTANOS
             </a>
@@ -61,11 +68,43 @@ function HeroSection({ onNavigate }) {
                   <path d="M18.9 2H22l-6.8 7.8 8 10.2h-6.3l-4.9-6.2L6.7 20H3.5l7.3-8.3L3 2h6.5l4.4 5.7L18.9 2Zm-1.1 16h1.7L8.6 3.9H6.8L17.8 18Z" />
                 </svg>
               </a>
-              <button type="button" className="hero-card__menu-btn" aria-label="Abrir menu">
-                <span />
-                <span />
-                <span />
-              </button>
+              <div className="hero-card__menu-wrap">
+                <button
+                  type="button"
+                  className="hero-card__menu-btn"
+                  aria-label="Abrir menu"
+                  onClick={() => setIsMenuOpen((prev) => !prev)}
+                >
+                  <span />
+                  <span />
+                  <span />
+                </button>
+                {isMenuOpen && (
+                  <div className="hero-card__hamburger-bar" role="menu" aria-label="Menu hamburguesa">
+                    <button
+                      type="button"
+                      onClick={(event) => handleNavigate(event, "Productos")}
+                      className="hero-card__hamburger-item"
+                    >
+                      Productos
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(event) => handleNavigate(event, "Galeria")}
+                      className="hero-card__hamburger-item"
+                    >
+                      Galeria
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(event) => handleNavigate(event, "Usuarios")}
+                      className="hero-card__hamburger-item"
+                    >
+                      Usuarios
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
