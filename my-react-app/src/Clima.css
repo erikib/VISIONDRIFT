@@ -1,64 +1,81 @@
-/* Clima.css */
-
-.divClima {
-  /* Posicionamiento y Layout */
-  position: relative; /* O 'fixed' si quieres que persiga la pantalla */
+﻿.clima-hover-wrap {
+  position: relative;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
-  margin: 20px;
-  
-  /* Estilo visual de "Nube" */
-  background: rgba(255, 255, 255, 0.75); /* Blanco con transparencia */
-  backdrop-filter: blur(12px); /* Efecto borroso detrás (Glassmorphism) */
-  border-radius: 50px; /* Bordes muy redondos */
-  border: 1px solid rgba(255, 255, 255, 0.8); /* Borde sutil brillante */
-  
-  /* Sombra suave para dar profundidad */
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.15),
-    inset 0 0 10px rgba(255, 255, 255, 0.5);
-
-  /* Tipografía */
-  color: #5a6b7c; /* Gris azulado suave */
-  font-family: system-ui, -apple-system, sans-serif;
-  font-weight: 600;
-  text-align: center;
-  
-  /* La Animación de Flotar */
-  animation: flotar 3s ease-in-out infinite;
+  margin-left: 8px;
 }
 
-/* Animación que mueve la nube arriba y abajo */
-@keyframes flotar {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px); /* Sube 10 pixeles */
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.clima-boton {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
 }
 
-/* Estilos extra para los textos internos */
-.divClima h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #2c3e50;
+.divClima {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 260px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2b3a49;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 20;
+}
+
+.clima-hover-wrap:hover .divClima {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.divClima.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .divClima p {
-  margin: 5px 0;
-  font-size: 0.9rem;
+  margin: 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
 }
 
-/* Opcional: Estilo para el ícono si decides agregarlo */
-.clima-icono {
-  width: 50px;
-  height: 50px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+.clima-seccion {
+  width: min(95vw, 1320px);
+  margin: 1.2rem auto;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.clima-seccion h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.15rem;
+  color: #202020;
+}
+
+.divClima--fijo {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  min-width: 0;
+  width: fit-content;
 }

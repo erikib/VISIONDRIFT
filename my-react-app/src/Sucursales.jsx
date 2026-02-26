@@ -6,40 +6,40 @@ const sucursalesData = [
   {
     id: 'cdmx',
     city: 'CDMX',
-    name: 'Sede Reforma',
-    address: 'Paseo de la Reforma 222, Juarez',
-    schedule: 'Lun - Vie: 9:00 - 18:00',
-    image: 'https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?auto=format&fit=crop&w=1200&q=80',
+    name: 'Perfumery House Reforma',
+    address: 'Paseo de la Reforma 222, Juarez, CDMX',
+    schedule: 'Lun - Dom: 10:00 - 20:00',
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1200&q=80',
     lat: 19.4271,
     lng: -99.1677
   },
   {
     id: 'gdl',
     city: 'Guadalajara',
-    name: 'Campus Zapopan',
-    address: 'Av. Vallarta 2440, Arcos Vallarta',
-    schedule: 'Lun - Sab: 10:00 - 14:00',
-    image: 'https://source.unsplash.com/1200x800/?guadalajara,mexico,city',
+    name: 'Aroma Boutique Zapopan',
+    address: 'Av. Vallarta 2440, Arcos Vallarta, Guadalajara',
+    schedule: 'Lun - Sab: 10:00 - 21:00',
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1200&q=80',
     lat: 20.6767,
     lng: -103.3875
   },
   {
     id: 'mty',
     city: 'Monterrey',
-    name: 'Torre San Pedro',
-    address: 'Av. Lazaro Cardenas 1000, Valle Ote',
-    schedule: 'Lun - Vie: 8:00 - 17:00',
-    image: 'https://source.unsplash.com/1200x800/?monterrey,mexico,skyline',
+    name: 'Essenza Gallery San Pedro',
+    address: 'Av. Lazaro Cardenas 1000, Valle Oriente, Monterrey',
+    schedule: 'Lun - Dom: 11:00 - 20:30',
+    image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1200&q=80',
     lat: 25.6511,
     lng: -100.3417
   },
   {
     id: 'pue',
     city: 'Puebla',
-    name: 'Centro Historico',
-    address: 'Calle 2 Sur 102, Centro',
-    schedule: 'Mar - Sab: 11:00 - 19:00',
-    image: 'https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&w=1200&q=80',
+    name: 'Maison de Parfum Puebla',
+    address: 'Calle 2 Sur 102, Centro Historico, Puebla',
+    schedule: 'Mar - Dom: 11:00 - 19:30',
+    image: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=1200&q=80',
     lat: 19.0414,
     lng: -98.2063
   }
@@ -50,7 +50,7 @@ const Sucursales = () => {
     <section className="sucursales-section">
       <div className="sucursales-header">
         <h2 className="titulo-principal">NUESTRAS SEDES</h2>
-        <p className="subtitulo-seccion">Encuentra el centro de capacitacion mas cercano a ti.</p>
+        <p className="subtitulo-seccion">Encuentra la sucursal de perfumes mas cercana a ti.</p>
       </div>
 
       <div className="sucursales-grid">

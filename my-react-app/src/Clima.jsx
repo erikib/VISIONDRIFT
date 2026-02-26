@@ -1,38 +1,81 @@
-//20.276643125269906, -97.95814136117528
 import { useEffect, useState } from "react";
-import './Clima.css';
+import "./Clima.css";
 
-function Clima(){
-    const[clima, setClima] = useState(null);
-    const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
-    console.log(API_KEY)
-    const lat = 20.276643125269906
-    const lng = -97.95814136117528
+function Clima({ vistaCompleta = false, soloContenido = false }) {
+  const [clima, setClima] = useState(null);
+  const [error, setError] = useState("");
+  const [fijado, setFijado] = useState(false);
+  const [hover, setHover] = useState(false);
+  const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+  const lat = 20.276643125269906;
+  const lng = -97.95814136117528;
+  const mostrarClima = fijado || hover;
 
-    useEffect(()=>{
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=es`)
-        .then((res)=> res.json())
-        .then((data)=>{
-            console.log(data);
-            setClima(data);
-        })
-        .catch((error)=> console.error("Error:", error));
-    },[])
+  useEffect(() => {
+    if (!apiKey) {
+      setError("Falta VITE_OPENWEATHER_API_KEY en .env");
+      return;
+    }
 
-    return(
-        <div className="divClima">
-        {
-            clima?(
-                <>
-                <p>{clima.name} Temp: {clima.main.temp} °C | Hum: {clima.main.humidity}</p>
-                <p>Descripcion: {clima.weather.description} </p>
-                </>
-            ):(
-                <p>Cargando Clima...</p>
-            )
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${apiKey}&units=metric&lang=es`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data?.main || !data?.weather?.[0]) {
+          setError(data?.message || "No se pudo obtener el clima");
+          setClima(null);
+          return;
         }
-    </div>
-     )
- }
+        setError("");
+        setClima(data);
+      })
+      .catch(() => {
+        setError("Error de conexion al consultar el clima");
+        setClima(null);
+      });
+  }, [apiKey]);
 
-export default Clima
+  const contenidoClima = error ? (
+    <p>{error}</p>
+  ) : clima ? (
+    <>
+      <p>{clima.name} Temp: {Math.round(clima.main.temp)} C | Hum: {clima.main.humidity}%</p>
+      <p>Descripcion: {clima.weather?.[0]?.description}</p>
+    </>
+  ) : (
+    <p>Cargando clima...</p>
+  );
+
+  if (soloContenido) {
+    return <div className="divClima divClima--fijo">{contenidoClima}</div>;
+  }
+
+  if (vistaCompleta) {
+    return (
+      <section className="clima-seccion">
+        <h2>Clima actual</h2>
+        <div className="divClima divClima--fijo">{contenidoClima}</div>
+      </section>
+    );
+  }
+
+  return (
+    <div
+      className="clima-hover-wrap"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <button
+        className="clima-boton"
+        type="button"
+        aria-label="Ver clima"
+        onClick={() => setFijado((prev) => !prev)}
+      >
+        {"\u2601"}
+      </button>
+
+      <div className={`divClima ${mostrarClima ? "visible" : ""}`}>{contenidoClima}</div>
+    </div>
+  );
+}
+
+export default Clima;

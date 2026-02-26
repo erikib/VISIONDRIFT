@@ -1,4 +1,17 @@
-.app-shell {
+﻿.app-shell {
   width: 100%;
   min-height: 100vh;
+}
+
+.home-geo-section {
+  width: min(95vw, 1320px);
+  margin: 2.8rem auto 0;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.home-geo-section h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.15rem;
+  color: #202020;
 }

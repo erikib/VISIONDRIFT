@@ -1,37 +1,25 @@
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-
-const containerStyle = {
-    width: '100%',
-    height: '200px'
-};
-
 function Mapa({ lat, lng, nombre_sucursal }) {
-    const { isLoaded, loadError } = useJsApiLoader({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-    });
+  const delta = 0.01;
+  const bbox = `${lng - delta},${lat - delta},${lng + delta},${lat + delta}`;
+  const embedSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}`;
+  const mapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
 
-    if (loadError) {
-        return <div>Error al cargar el Mapa: {loadError.message}</div>;
-    }
-    
-    if (!isLoaded) {
-        return <div>Cargando mapa...</div>;
-    }
-
-    const center = { lat, lng };
-    
-    return (
-        <div>
-            <h2>{nombre_sucursal}</h2>
-            <GoogleMap
-                mapContainerStyle={containerStyle} 
-                center={center}
-                zoom={16}
-            >
-                <Marker position={center} />
-            </GoogleMap>
-        </div>
-    );
+  return (
+    <div>
+      <h2>{nombre_sucursal}</h2>
+      <iframe
+        title={`Mapa de ${nombre_sucursal}`}
+        src={embedSrc}
+        width="100%"
+        height="200"
+        style={{ border: 0 }}
+        loading="lazy"
+      />
+      <a href={mapsLink} target="_blank" rel="noreferrer">
+        Ver en Google Maps
+      </a>
+    </div>
+  );
 }
 
 export default Mapa;

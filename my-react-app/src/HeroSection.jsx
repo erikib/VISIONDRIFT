@@ -2,9 +2,11 @@ import fondoPrincipalVideo from "./assets/FondoPrincipal.MP4";
 import nube from "./assets/nuve.png";
 import "./HeroSection.css";
 import { useState } from "react";
+import Clima from "./Clima";
 
 function HeroSection({ onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isWeatherOpen, setIsWeatherOpen] = useState(false);
 
   const handleNavigate = (event, vista) => {
     event.preventDefault();
@@ -45,9 +47,21 @@ function HeroSection({ onNavigate }) {
             <a href="#" onClick={(event) => handleNavigate(event, "AcercaDe")}>
               ACERCA DE
             </a>
-            <button type="button" className="hero-card__weather-btn" aria-label="Clima">
-              <img src={nube} alt="Clima" />
-            </button>
+            <div className="hero-card__weather-wrap">
+              <button
+                type="button"
+                className="hero-card__weather-btn"
+                aria-label="Clima"
+                onClick={() => setIsWeatherOpen((prev) => !prev)}
+              >
+                <img src={nube} alt="Clima" />
+              </button>
+              {isWeatherOpen && (
+                <div className="hero-card__weather-popover">
+                  <Clima soloContenido />
+                </div>
+              )}
+            </div>
             <a href="#" onClick={(event) => handleNavigate(event, "Contactos")}>
               CONTACTANOS
             </a>
@@ -135,7 +149,9 @@ function HeroSection({ onNavigate }) {
             <span>NRO. DE PERSONAS</span>
             <p>2</p>
           </div>
-          <button type="button">VER DISPONIBILIDAD</button>
+          <button type="button" onClick={(event) => handleNavigate(event, "Sucursales")}>
+            VER SUCURSALES
+          </button>
         </div>
       </div>
     </section>
